@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>flexbox</title>
+        <style>
+            .container{
+                display:flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content:space-between;
+                align-items: center;
+                align-content: space-around;
+                height:100vh;
+                border: 3px solid black;
+            }
+            .items{
+                flex-grow: 2;
+                flex-shrink: 2;
+                flex-basis: 20px;
+                order: 2;
+                align-self: flex-start;
+                background-color: lightcoral;
+                padding: 30px;
+                margin:20px;
+                color:white;
+                font-size:2em;
+                text-align:center;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+          <div class="items">apple</div>
+          <div class="items">banana</div>
+          <div class="items">mango</div>
+          <div class="items">orange</div>
+          <div class="items">peach</div>
+        </div>
+    </body>
+    
+</html>
