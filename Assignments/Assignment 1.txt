@@ -1,0 +1,35 @@
+1.what is HTML?
+  HTML is the standard language for creating web pages, using tags to define elements like text, images, and links.
+
+2.Are the HTML tags and elements the same thing?
+  No. Tags are the building blocks (ex: <p>), while elements include the tags and content (ex: <p>Text</p>).
+
+3.What are the tags and attributes in HTML?
+  Tags define elements (ex: <img>), and attributes add extra info (ex: src="image.jpg" in <img>).
+
+4.What are void elememts in HTML?
+  Void elements are tags without closing tags (ex: <img>, <br>, <input>).
+
+5.What is the feature of HTML?
+  1.Cross-Platform: Works on any operating system (Windows, macOS, Linux).
+  2.Supports Multimedia: Can embed images, audio, and videos.
+  3.Flexible and Easy to Learn: Simple syntax, making it beginner-friendly.
+  4.Hyperlinking: Allows linking between pages for easy navigation.
+  5.Semantic Markup: Provides meaning to content with tags like <header>, <article>, <footer>.
+  6.Integrates with CSS and JavaScript: Supports styling with CSS and interactivity with JavaScript.
+  7.Responsive Design: Works well with frameworks for mobile-friendly web pages.
+
+6.Diff between HTML vs XHTML?
+  HTML:
+
+    1.Not case-sensitive (<Div> and <div> are the same).
+    2.Can leave some tags unclosed (<br> is valid).
+    3.Allows flexible, lenient structure.
+    4.Better for quick prototyping and backward compatibility.
+
+  XHTML:
+
+    1.Case-sensitive (all tags must be lowercase, like <div>).
+    2.All tags must be properly closed (e.g., <br />).
+    3.Requires stricter document structure (proper nesting).
+    4.Based on XML, making it more consistent and standardized.
