@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>MRH Computers</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <section class="flex">
+
+      <a href="#home" class="logo">MRH Computers</a>
+
+      <nav class="navbar">
+         <a href="#home">Home</a>
+         <a href="#about">About</a>
+         <a href="#products">Products</a>
+         <a href="#order">Order</a>
+         <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="icons">
+         <div id="products-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="order-btn" class="fas fa-box"></div>
+         <div id="cart-btn" class="fas fa-shopping-cart"><span>(3)</span></div>
+      </div>
+
+   </section>
+
+</header>
+
+<!-- header section ends -->
+
+<div class="user-account">
+
+   <section>
+
+      <div id="close-account"><span>Close</span></div>
+
+      <div class="user">
+         <p><span>You are not logged in now!</span></p>
+      </div>
+
+      <div class="display-orders">
+         <p>MSI RTX 4080 <span>( Rs.1,00,999/- x 1 )</span></p>
+         <p>MSI B550 Motherboard <span>( Rs.11,999/- x 1 )</span></p>
+         <p>MAG CORELIQUID C360 AIO CPU Liquid Cooler<span>( Rs.6,999/- x 1 )</span></p>
+      </div>
+
+      <div class="flex">
+
+         <form action="" method="post">
+            <h3>Login Now</h3>
+            <input type="email" name="email" required class="box" placeholder="Enter Your Email" maxlength="50">
+            <input type="password" name="pass" required class="box" placeholder="Enter Your Password" maxlength="20">
+            <input type="submit" value="login now" name="login" class="btn">
+         </form>
+
+         <form action="" method="post">
+            <h3>Register Now</h3>
+            <input type="text" name="name" required class="box" placeholder="Enter Your Name" maxlength="20">
+            <input type="email" name="email" required class="box" placeholder="Enter Your Email" maxlength="50">
+            <input type="password" name="pass" required class="box" placeholder="Enter Your Password" maxlength="20">
+            <input type="password" name="cpass" required class="box" placeholder="Confirm Your Password" maxlength="20">
+            <input type="submit" value="register now" name="register" class="btn">
+         </form>
+
+      </div>
+
+   </section>
+
+</div>
+
+<div class="my-orders">
+
+   <section>
+
+      <div id="close-orders"><span>Close</span></div>
+
+      <h3 class="title"> My Orders </h3>
+
+      <div class="box">
+         <p>placed on : <span>06/04/2024</span> </p>
+         <p>name : <span>Rayan Hussain</span> </p>
+         <p>number : <span>1234567890</span></p>
+         <p>address : <span>flat no. 123, bulding no. 2, jogeshwari, Banglore, india - 560100</span></p>
+         <p>payment method : <span>Cash On Delivery</span></p>
+         <p>your orders : <span>MSI RTX 4080  Rs.1,00,999/- x 1, MSI B550 Motherboard Rs.11,999/- x 1, MAG CORELIQUID C360 AIO CPU Liquid Cooler Rs.6,999/- x 1</span></p>
+         <p>total price : <span>Rs.1,19,997/-</span></p>
+         <p>payment status : <span style="color: var(--red);">Pending</span> </p>
+      </div>
+
+
+   </section>
+
+</div>
+
+<div class="shopping-cart">
+
+   <section>
+
+      <div id="close-cart"><span>Close</span></div>
+
+      <div class="box">
+         <a href="#" class="fas fa-times"></a>
+         <img src="images/RTX 4080.png" alt="">
+         <div class="content">
+            <p>MSI RTX 4080 <span>( Rs.1,00,999/- x 1 )</span></p>
+            <form action="" method="post">
+               <input type="number" class="qty" name="qty" min="1" value="1" max="100">
+               <button type="submit" class="fas fa-edit" name="update_qty"></button>
+            </form>
+         </div>
+      </div>
+
+      <div class="box">
+         <a href="#" class="fas fa-times"></a>
+         <img src="images/MSI b550.png" alt="">
+         <div class="content">
+            <p>MSI B550 Motherboard <span>( Rs.11,999/- x 1 )</span></p>
+            <form action="" method="post">
+               <input type="number" class="qty" name="qty" min="1" value="1" max="100">
+               <button type="submit" class="fas fa-edit" name="update_qty"></button>
+            </form>
+         </div>
+      </div>
+
+      <div class="box">
+         <a href="#" class="fas fa-times"></a>
+         <img src="images/MSI AIO.png" alt="">
+         <div class="content">
+            <p>MAG CORELIQUID C360 AIO CPU Liquid Cooler<span>( Rs.6,999/- x 1 )</span></p>
+            <form action="" method="post">
+               <input type="number" class="qty" name="qty" min="1" value="1" max="100">
+               <button type="submit" class="fas fa-edit" name="update_qty"></button>
+            </form>
+         </div>
+      </div>
+
+      <a href="#order" class="btn">order now</a>
+
+   </section>
+
+</div>
+
+<div class="home-bg">
+
+   <section class="home" id="home">
+
+      <div class="slide-container">
+
+         <div class="slide active">
+            <div class="image">
+               <img src="images/home-img-1.png" alt="">
+            </div>
+            <div class="content">
+               <h3>MSI RTX 4090</h3>
+               <div class="fas fa-angle-left" onclick="prev()"></div>
+               <div class="fas fa-angle-right" onclick="next()"></div>
+            </div>
+         </div>
+
+         <div class="slide">
+            <div class="image">
+               <img src="images/home-img-2.png" alt="">
+            </div>
+            <div class="content">
+               <h3>MSI MAG CORELIQUID C360 AIO</h3>
+               <div class="fas fa-angle-left" onclick="prev()"></div>
+               <div class="fas fa-angle-right" onclick="next()"></div>
+            </div>
+         </div>
+
+         <div class="slide">
+            <div class="image">
+               <img src="images/home-img-3.png" alt="">
+            </div>
+            <div class="content">
+               <h3>MSI Full Built Gaming PC</h3>
+               <div class="fas fa-angle-left" onclick="prev()"></div>
+               <div class="fas fa-angle-right" onclick="next()"></div>
+            </div>
+         </div>
+
+      </div>
+
+   </section>
+
+</div>
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+   <h1 class="heading">about us</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <img src="images/about-1.png" alt="">
+         <h3>Top-Notch selection</h3>
+         <p>Explore our top-notch selection of PC parts, featuring high-performance GPUs, CPUs, motherboards, and cooling solutions. Each component is chosen for its reliability and performance, ensuring you build a powerful system that meets your needs.</p>
+         <a href="#products" class="btn">Our Products</a>
+      </div>
+
+      <div class="box">
+         <img src="images/about-2.png" alt="">
+         <h3>Fastest Delivery Possible</h3>
+         <p>Experience lightning-fast delivery on all your PC part orders. We prioritize quick shipping to ensure you get the components you need without delay,Max we take 7 days and fastest 1 day delivery, so you can start building your dream-favourite setup in no time!</p>
+         <a href="#products" class="btn">Our Products</a>
+      </div>
+
+      <div class="box">
+         <img src="images/about-3.png" alt="">
+         <h3>Safe & Secure Packaging</h3>
+         <p>At our PC parts store, safety is a top priority. We take great care to ensure that every component is safely packaged using high-quality materials to prevent any damage during transit from any impact or damage.</p>
+         <a href="#products" class="btn">Our Products</a>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- products section starts  -->
+
+<section id="products" class="products">
+
+   <h1 class="heading">our Product</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <div class="price">Rs.<span>69,999</span>/-</div>
+         <img src="images/RTX 4070.png" alt="">
+         <div class="name">MSI RTX 4070</div>
+         <form action="" method="post">
+            <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+         </form>
+      </div>
+
+      <div class="box">
+         <div class="price">Rs.<span>1,00,999</span>/-</div>
+         <img src="images/RTX 4080.png" alt="">
+         <div class="name">MSI RTX 4080</div>
+         <form action="" method="post">
+            <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+         </form>
+      </div>
+
+      <div class="box">
+         <div class="price">Rs.<span>2,10,999</span>/-</div>
+         <img src="images/RTX 4090.png" alt="">
+         <div class="name">MSI RTX 4090</div>
+         <form action="" method="post">
+            <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+         </form>
+      </div>
+
+      <div class="box">
+         <div class="price">Rs.<span>9,999</span>/-</div>
+         <img src="images/MSI b365m.png" alt="">
+         <div class="name">MSI B365M Motherboard</div>
+         <form action="" method="post">
+            <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+         </form>
+      </div>
+
+      <div class="box">
+         <div class="price">Rs.<span>11,999</span>/-</div>
+         <img src="images/MSI b550.png" alt="">
+         <div class="name">MSI B550 Motherboard</div>
+         <form action="" method="post">
+            <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+         </form>
+      </div>
+
+      <div class="box">
+         <div class="price">Rs.<span>6,999</span>/-</div>
+         <img src="images/MSI AIO.png" alt="">
+         <div class="name">MAG CORELIQUID C360 AIO CPU Liquid Cooler</div>
+         <form action="" method="post">
+            <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+         </form>
+      </div>
+
+      <div class="box">
+         <div class="price">Rs.<span>1,10,999</span>/-</div>
+         <img src="images/MSI i5.png" alt="">
+         <div class="name">MSI Intel i5 RTX 4070 Full built PC</div>
+         <form action="" method="post">
+            <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+         </form>
+      </div>
+
+      <div class="box">
+         <div class="price">Rs.<span>2,10,999</span>/-</div>
+         <img src="images/MSI i7.png" alt="">
+         <div class="name">MSI Intel i7 RTX 4080 Full built PC</div>
+         <form action="" method="post">
+            <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+         </form>
+      </div>
+
+      <div class="box">
+         <div class="price">Rs.<span>2,99,999</span>/-</div>
+         <img src="images/MSI i9.png" alt="">
+         <div class="name">MSI Intel i9 RTX 4090 Full built PC</div>
+         <form action="" method="post">
+            <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+         </form>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- products section ends -->
+
+<!-- order section starts  -->
+
+<section class="order" id="order">
+
+   <h1 class="heading">order now</h1>
+
+   <form action="" method="post">
+
+      <div class="display-orders">
+         <p>MSI RTX 4080 <span>( Rs.1,00,999/- x 1 )</span></p>
+         <p>MSI B550 Motherboard <span>( Rs.11,999/- x 1 )</span></p>
+         <p>MAG CORELIQUID C360 AIO CPU Liquid Cooler<span>( Rs.6,999/- x 1 )</span></p>
+      </div>
+
+      <div class="flex">
+         <div class="inputBox">
+            <span>Your Name :</span>
+            <input type="text" name="name" class="box" required placeholder="Enter Your Name" maxlength="20">
+         </div>
+         <div class="inputBox">
+            <span>Your Number :</span>
+            <input type="number" name="number" class="box" required placeholder="Enter Your Number" min="0">
+         </div>
+         <div class="inputBox">
+            <span>Payment Method</span>
+            <select name="method" class="box">
+               <option value="cash on delivery">Cash On Delivery</option>
+               <option value="credit card">Credit Card</option>
+               <option value="paytm">Paytm</option>
+               <option value="UPI">UPI</option>
+            </select>
+         </div>
+         <div class="inputBox">
+            <span>Address line 01 :</span>
+            <input type="text" name="flat" class="box" required placeholder="e.g. Flat no." maxlength="50">
+         </div>
+         <div class="inputBox">
+            <span>Address line 02 :</span>
+            <input type="text" name="street" class="box" required placeholder="e.g. Street Name." maxlength="50">
+         </div>
+         <div class="inputBox">
+            <span>Pin Code :</span>
+            <input type="number" name="pin_code" class="box" required placeholder="e.g. 123456" min="0">
+         </div>
+      </div>
+
+      <input type="submit" value="order now" class="btn" name="order">
+
+   </form>
+
+</section>
+
+<!-- order section ends -->
+
+<!-- faq section starts  -->
+
+<section class="faq" id="faq">
+
+   <h1 class="heading">FAQ</h1>
+
+   <div class="accordion-container">
+
+      <div class="accordion active">
+         <div class="accordion-heading">
+            <span>How does it work?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            Our website offers a wide range of PC components. Simply browse the products, add items to your cart, and place your order. We handle the rest—from processing your payment to ensuring fast delivery.
+         </p>
+      </div>
+
+      <div class="accordion">
+         <div class="accordion-heading">
+            <span>How long does it take for delivery?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            Delivery usually takes 3-7 business days, depending on your location. We’ll provide tracking details so you can follow your order every step of the way.
+         </p>
+      </div>
+
+      <div class="accordion">
+         <div class="accordion-heading">
+            <span>Can I order in bulk?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            Absolutely! We offer bulk orders for businesses and enthusiasts. Contact our support team for discounts or customized orders.
+         </p>
+      </div>
+
+      <div class="accordion">
+         <div class="accordion-heading">
+            <span>Are all products covered by warranty?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            Yes, all products come with manufacturer warranties. Check the product page for specific warranty periods and terms.
+         </p>
+      </div>
+
+      <div class="accordion">
+         <div class="accordion-heading">
+            <span>What payment methods do you accept?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            We accept major credit/debit cards, UPI, net banking, and wallets. You can also opt for EMI options during checkout.
+         </p>
+      </div>
+
+   </div>
+
+</section>
+
+
+<!-- faq section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+   <div class="box-container">
+
+      <div class="box">
+         <i class="fas fa-phone"></i>
+         <h3>Phone Number</h3>
+         <p>+91-8612646788</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-map-marker-alt"></i>
+         <h3>Our Address</h3>
+         <p>Banglore, india - 560100</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-clock"></i>
+         <h3>Opening Hours</h3>
+         <p>05:00 AM to 11:59 PM</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-envelope"></i>
+         <h3>Email Address</h3>
+         <p>rayanhussain02@gmail.com</p>
+      </div>
+
+   </div>
+
+   <div class="credit">
+      &copy; Copyright @ 2024 by <span>Mohammed Rayan Hussain</span> | All rights reserved!
+   </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
