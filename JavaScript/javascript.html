@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript const and var Example</title>
+</head>
+<body>
+
+  <h1>Area Of Circle</h1>
+
+  <script>
+    const PI = 3.14159;
+    document.write("<p>Value of PI: " + PI + "</p>");
+
+    var radius = 5;
+    document.write("<p>Radius: " + radius + "</p>");
+
+    function calculateArea() {
+      var area = PI * radius * radius; 
+      document.write("<p>Area of the circle: " + area + "</p>");
+    }
+
+    calculateArea();
+  </script>
+
+</body>
+</html>
