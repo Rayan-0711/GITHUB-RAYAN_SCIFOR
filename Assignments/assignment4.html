@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break and Continue Example</title>
+</head>
+<body>
+
+<h2>Break and Continue Example in JavaScript</h2>
+<p>Open the console to see the output.</p>
+
+<script>
+
+for (let i = 1; i <= 10; i++) {
+    if (i === 3) {
+        console.log("Encountered 3, executing 'continue' to skip this iteration.");
+        continue;
+    } else if (i === 5) {
+        console.log("Encountered 5, executing 'break' to exit the loop.");
+        break;
+    }
+    console.log("Current number: " + i);
+}
+
+console.log("Loop ended.");
+</script>
+
+</body>
+</html>
