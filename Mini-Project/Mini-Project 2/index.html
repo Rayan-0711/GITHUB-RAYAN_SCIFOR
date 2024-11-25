@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    
+        <nav class="navbar">
+            <div class="logo">RAYAN</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+    <!-- Back to Top Button -->
+    <button id="scrollUpBtn" onclick="scrollToTop()">↑</button>
+
+    <!-- Homepage Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="image-placeholder">
+                <img src="profile 2.png" alt="Profile Picture">
+            </div>
+            <div class="hero-text">
+                <h1>Hi, It's <span class="highlight">Rayan</span></h1>
+                <h2>I'm a <span class="high">Web Developer</span></h2>
+                <p>Passionate about crafting seamless and dynamic web experiences. I specialize in creating responsive designs and efficient code, focusing on delivering user-friendly interfaces and scalable solutions. When I'm not coding, you can find me exploring the latest web trends or working on exciting new projects to push the boundaries of what's possible online.</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/mohammed-rayan-hussain-2b65bb312/" class="social-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>                    
+                    <a href="https://github.com/Rayan-0711" class="social-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:rayanhussain1001@gmail.com" class="social-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="https://www.instagram.com/your-profile" class="social-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <br><a href="#contact" class="btn">Hire Me</a>
+                <a href="https://drive.google.com/uc?export=download&id=19ihJbGoO4Syh4byAM_2PXevGLIoT9bh6" class="btn">Download CV <i class="fas fa-download"></i></a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- About Me Section -->
+    <section id="about-me" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-description">
+                Hi, I'm Mohammed Rayan Hussain, a passionate Web Developer specializing in Frontend Development, focused on creating innovative solutions and enhancing user experiences.
+            </p><br>
+            <div class="info-item">
+                <div class="info-box">
+                
+                    <p><strong><i class="fa-solid fa-code"></i> Skills:</strong></p>
+                </div>
+                <p>HTML, CSS, JavaScript, Node.js.</p>
+            </div>
+            <div class="info-item">
+                <div class="info-box">
+                    <p><strong><i class="fa-solid fa-graduation-cap"></i>  Education:</strong></p>
+                </div>
+                <p>B.E. in Computer Science Engineering.</p>
+            </div>
+            <div class="info-item">
+                <div class="info-box">
+                    <p><strong><i class="fa-solid fa-school"></i> College:</strong></p>
+                </div>
+                <p>AMC Engineering College (VTU).</p>
+            </div>
+            <div class="info-item">
+                <div class="info-box">
+                    <p><strong><i class="fa-solid fa-bookmark"></i> Internship:</strong></p>
+                </div>
+                <p>Frontend Developer Intern at MetaScifor.</p>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="pr1.png" alt="Project 1" class="project-image">
+                <h3 class="project-title">MRH Computers</h3>
+                <p class="project-description">A sleek and user-friendly website showcasing computer hardware, peripherals, and custom PC builds, designed to simplify the shopping experience.</p>
+                <a href="https://papaya-cocada-611989.netlify.app/" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="pr2.png" alt="Project 2" class="project-image">
+                <h3 class="project-title">Portfolio</h3>
+                <p class="project-description">A dynamic, visually appealing platform that highlights personal skills, projects, and achievements. Designed to present work in an engaging way with easy navigation and a modern aesthetic.</p>
+                <a href="project2-link" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="pr3.png" alt="Project 2" class="project-image">
+                <h3 class="project-title">Browser Home Design</h3>
+                <p class="project-description">A customizable and intuitive home page for your browser, offering quick access to favorite websites, news, and essential tools. Designed for efficiency with a clean layout and easy navigation.</p>
+                <a href="project2-link" class="btn">View Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Form Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <form id="contact-form" onsubmit="return handleSubmit(event)">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Success Popup -->
+    <div id="popup-success" class="popup">
+        Your message has been sent successfully!
+    </div>
+
+    <!-- Error Popup -->
+    <div id="popup-error" class="popup">
+        Please fill in all fields correctly.
+    </div>
+</section>
+
+
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Rayan's Portfolio</p>
+    </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+ 
