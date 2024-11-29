@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse and Sort Array</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reverse and Sort Array</h1>
+    <label for="arrayInput">Enter characters (comma-separated):</label>
+    <input type="text" id="arrayInput" placeholder="e.g., a,b,c,d">
+    <button onclick="processArray()">Process Array</button>
+    <h3>Output:</h3>
+    <p id="reverseOutput"></p>
+    <p id="sortedOutput"></p>
+
+    <script>
+        function reverseAndSortArray(array) {
+            const reversedArray = array.reverse();
+            const sortedArray = [...reversedArray].sort();
+            return { reversedArray, sortedArray };
+        }
+
+        function processArray() {
+            const input = document.getElementById('arrayInput').value;
+            if (!input) {
+                document.getElementById('reverseOutput').textContent = "Please enter some characters.";
+                document.getElementById('sortedOutput').textContent = "";
+                return;
+            }
+            const inputArray = input.split(',');
+            const { reversedArray, sortedArray } = reverseAndSortArray(inputArray);
+            document.getElementById('reverseOutput').textContent = `Reversed Array: [${reversedArray.join(', ')}]`;
+            document.getElementById('sortedOutput').textContent = `Sorted Array: [${sortedArray.join(', ')}]`;
+        }
+    </script>
+</body>
+</html>
