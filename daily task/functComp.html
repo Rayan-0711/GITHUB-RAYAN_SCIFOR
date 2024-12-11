@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Example</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Display() {
+            const [showContent, setShowContent] = React.useState(false);
+
+            const handleClick = () => {
+                setShowContent(true);
+            };
+
+            return (
+                <div>
+                    <button onClick={handleClick}>Hello Guys!</button>
+                    {showContent && (
+                        <div>
+                            <h1>This is a Heading</h1>
+                            <p>This is a paragraph providing more details.</p>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Display />, document.getElementById('root'));
+    </script>
+</body>
+</html>
