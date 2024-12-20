@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test 12</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .user-details {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const UserDetails = (props) => {
+      return (
+        <div className="user-details">
+          <h2>User Details</h2>
+          <p><strong>Name:</strong> {props.name}</p>
+          <p><strong>Age:</strong> {props.age}</p>
+          <p><strong>Email:</strong> {props.email}</p>
+          <p><strong>Mobile No:</strong> {props.mobileNo}</p>
+          <p><strong>City:</strong> {props.city}</p>
+        </div>
+      );
+    };
+
+    const App = () => {
+      return (
+        <div>
+          <UserDetails
+            name="Rayan"
+            age={21}
+            email="rayan@example.com"
+            mobileNo="999875654"
+            city="Banglore"
+          />
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
