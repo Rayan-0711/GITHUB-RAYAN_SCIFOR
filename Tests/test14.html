@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 14</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        #numbersResult, #factorialResult {
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>1. Find Odd and Even Numbers</h1>
+        <h2>To check if numbers are odd or even</h2>
+        <input type="text" id="numbersInput" placeholder="Enter numbers (e.g., 1,2,3)">
+        <button onclick="findOddEven()">Check</button>
+        <p id="numbersResult"></p>
+    </div>
+
+    <div class="container">
+        <h1>2. Find Factorial of a Number</h1>
+        <h2>To calculate the factorial of a number</h2>
+        <input type="number" id="factorialInput" placeholder="Enter a number">
+        <button onclick="findFactorial()">Calculate</button>
+        <p id="factorialResult"></p>
+    </div>
+
+    <script>
+        function findOddEven() {
+            const input = document.getElementById('numbersInput').value;
+            const numbers = input.split(',').map(Number);
+
+            const odd = numbers.filter(num => num % 2 !== 0).join(', ');
+            const even = numbers.filter(num => num % 2 === 0).join(', ');
+
+            document.getElementById('numbersResult').textContent = 
+                Even: ${even} | Odd: ${odd};
+        }
+
+        function findFactorial() {
+            const num = parseInt(document.getElementById('factorialInput').value);
+
+            if (num < 0 || isNaN(num)) {
+                document.getElementById('factorialResult').textContent = 
+                    "Enter a valid non-negative number.";
+                return;
+            }
+
+            let fact = 1;
+            for (let i = 1; i <= num; i++) {
+                fact *= i;
+            }
+
+            document.getElementById('factorialResult').textContent = 
+                Factorial: ${fact};
+        }
+    </script>
+</body>
+</html>
