@@ -1,0 +1,151 @@
+
+
+.profile-box {
+    font-family: sans-serif;
+    width: 350px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    font-size: 14px;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.profile-box .profile-header {
+    display: flex; /* Align icon and name in a row */
+    flex-direction: column; /* Stack the button below the name */
+    align-items: center; /* Center align both profile icon and name */
+    margin-bottom: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding-bottom: 8px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.profile-box .profile-row {
+    display: flex; /* Align profile icon and name in a row */
+    justify-content: flex-start; /* Align to the left */
+    align-items: center; /* Center vertically */
+    width: 95%;
+    margin: 8px;
+    padding: 8px;
+    transition: 0.3s;
+}
+
+.profile-box .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-right: 8px;
+    margin-left: 8px;
+    overflow: hidden; /* Ensures the image fits within the circle */
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    position: relative; /* Ensures it's in the right context */
+}
+
+.profile-box .profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire area of the circle */
+    margin: 0; /* Ensures no margin around the image */
+}
+
+
+.profile-box .profile-name {
+    font-weight: bold;
+    transform: translateY(5px);
+    padding-bottom: 8px;
+    margin-left: 8px;
+}
+
+.profile-box .profile-line {
+    width: 92%;
+    border-top: 2px solid #ddd; /* Line style */
+}
+
+.profile-box .profile-row:hover{
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.see-profiles-btn {
+    width: 92%; /* Button takes full width */
+    padding: 8px;
+    margin: 8px 0; /* Equal margin on top and bottom */
+    border: none;
+    background-color: #f0f2f5;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Include padding in the width */
+    transition: 0.3s;
+}
+
+.see-profiles-btn:hover{
+    background-color: #d9d9d9;
+}
+
+.profile-box .profile-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.profile-box .profile-menu li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.profile-box .profile-menu li:hover {
+    background-color: #f0f2f5;
+    border-radius: 8px;
+}
+
+.profile-box .profile-menu i {
+    margin-right: 8px;
+    color: #000000;
+    margin-left: 8px;
+    background-color: #ddd;   /* Circle background color */
+    border-radius: 50%;       /* Makes the background a circle */
+    padding: 8px;             /* Padding to create the circular shape */
+    display: inline-flex;     /* Ensure the icon stays in a block-like structure */
+    align-items: center;      /* Vertically center the icon */
+    justify-content: center;  /* Horizontally center the icon */
+    font-size: 14px;          /* Icon size */
+}
+
+.menu-text {
+    font-size: 14px;
+    color: #000000;
+}
+
+.shortcut {
+    margin-left: auto; /* Pushes the shortcut text to the right */
+    color: #000000;
+    font-size: 12px;
+    white-space: nowrap; /* Prevents the text from breaking onto a new line */
+}
+
+.profile-footer {
+    font-size: 12px;
+    color: #888;
+    text-align: left;
+    margin-top: 16px;
+}

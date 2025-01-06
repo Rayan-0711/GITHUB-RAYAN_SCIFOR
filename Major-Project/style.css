@@ -1,0 +1,1576 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav .left .logo {
+    color: #006eff;
+    font-size: 40px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+/* Spinner Styling */
+.loading-spinner {
+    position: fixed;
+    top: 65px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px; /* Outer circle size */
+    height: 45px;
+    background-color: white; /* White circular background */
+    border-radius: 50%; /* Make it circular */
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+/* Inner Spinning Line */
+.loading-spinner::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Ensure proper alignment */
+    width: 30px; /* Inner circle size, slightly smaller than the outer circle */
+    height: 30px;
+    border-radius: 50%; /* Circular shape */
+    border: 2px solid transparent; /* Transparent all around */
+    border-top: 2px solid black; /* Black spinning line */
+    border-right: 2px solid black; /* Longer line effect */
+    animation: smooth-spin 2s cubic-bezier(0.4, 0.0, 0.2, 1) infinite; /* Smooth, elegant spinning */
+}
+
+/* Smooth Spin Animation */
+@keyframes smooth-spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Blinking Animation */
+@keyframes smooth-blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0; /* Adjust for desired "blink" intensity */
+    }
+}
+
+/* Class to Trigger Blinking */
+.blink {
+    animation: smooth-blink 2s ease-in-out 3; /* Smooth blinking animation, 3 cycles */
+}
+
+
+nav .left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+nav .left .search_bar{
+    width: 250px;
+    height: 40px;
+    background: #efefef;
+    border-radius: 30px;
+    padding: 0 10px;
+    margin-left: 4px;
+    position: relative;
+    left: 4px;
+}
+
+nav .left .search_bar i{
+    line-height: 40px;
+    font-size: 19px;
+    color: #919191;
+    margin-right: 5px;
+}
+
+nav .left .search_bar input{
+    background: transparent;
+    outline: none;
+    border: 0;
+    font-size: 16px;
+    width: 200px;
+}
+
+nav .center{
+    position: relative;
+    right: 45px;
+}
+
+
+nav .center i{
+    padding: 11px 45px;
+    margin-top: 10px;
+    font-size: 26px;
+    color: transparent; /* Make the icon color transparent */
+    -webkit-text-stroke: 1.7px #666666; /* Outline for WebKit-based browsers */
+    text-stroke: 1.7px #666666; /* Fallback for other browsers */
+    transition: 0.3s;
+}
+
+
+nav .center span{
+    padding: 13px 45px;
+    margin-top: 14px;
+    font-size: 22px;
+    transform: translateY(-5px);
+    color: transparent; /* Make the icon color transparent */
+    -webkit-text-stroke: 1.7px #666666; /* Outline for WebKit-based browsers */
+    text-stroke: 1.7px #666666; /* Fallback for other browsers */
+    transition: 0.3s;
+}
+
+.material-symbols-rounded.active {
+    color: #006eff;
+    -webkit-text-stroke: 1.7px #006eff;
+    border-bottom: 4px solid #1877f2;
+}
+
+.material-symbols-rounded.active:hover{
+    background-color: white;
+    border-radius: 0px;
+}
+
+nav .center i:hover{
+    cursor: pointer;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+}
+
+nav .center span:hover{
+    cursor: pointer;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+}
+
+
+nav .center {
+    display: flex;
+    justify-content: center;
+}
+
+nav .center .icon-container {
+    position: relative; /* To position name-card relative to each icon */
+    text-align: center;
+}
+
+nav .center .name-card {
+    position: absolute;
+    top: 100%; /* Position below the icon */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Adjust font size */
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Prevent interaction */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+nav .center .icon-container:hover .name-card {
+    opacity: 1; /* Show name card on hover */
+    visibility: visible;
+}
+
+
+nav .right{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+nav .right i {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; /* Make the icon container circular */
+    background: #efefef; /* Background for the icon */
+    line-height: 35px; /* Center the icon vertically */
+    text-align: center; /* Center the icon horizontally */
+    font-size: 18px; /* Icon size */
+    margin-left: 8px; /* Space between icons */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: 0.3s;
+}
+nav .right i:hover{
+    background-color: #d9d9d9;
+}
+
+nav .right img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-left: 8px;
+    line-height: 45px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav .right .icon-container {
+    position: relative; /* To position name-card relative to each icon */
+    text-align: center;
+    cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+nav .right .name-card {
+    position: absolute;
+    top: 100%; /* Position below the icon */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Adjust font size */
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Prevent interaction */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+nav .right .icon-container:hover .name-card {
+    opacity: 1; /* Show name card on hover */
+    visibility: visible;
+}
+
+#profile-container {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position relative to the icon */
+    top: 100%; /* Places it below the icon */
+    transform: translateX(-300px);
+    margin-top: 10px; /* Space between the icon and profile card */
+    width: 100%; /* Adjust as needed */
+    box-sizing: border-box;
+}
+
+.icon-container:active #profile-icon {
+    filter: brightness(80%);
+}
+
+
+/* Scale the image when clicked */
+nav .right img:active {
+    transform: scale(1.05); /* Scale the image by 1.2 times */
+}
+
+
+/*-----------------main---------------*/
+
+.main{
+    display: flex;
+    margin-top: 60px;
+    background: #f5f5f5;
+}
+
+.main .left{
+    width: 25%;
+    height: 92vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    background: #f5f5f5;
+    padding: 20px 6px 5px 10px;
+    position: fixed;
+}
+
+.main .left::-webkit-scrollbar{
+    width: 7px;
+}
+
+.main .left::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: #f5f5f5;
+}
+
+.main .left:hover::-webkit-scrollbar-thumb{
+    background: #cccccc;
+}
+
+.main .left .img{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main .left .img:hover{
+    background: #e3e3e3;
+    border-radius: 10px;
+}
+
+.main .left .img img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 8px 15px 8px 0;
+    margin-left: 10px;
+}
+
+.main .left hr{
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background: #cccccc;
+    margin: 10px 0;
+}
+
+.main .left h2{
+    font-size: 18px;
+    color: #919191;
+    margin: 5px 0;
+}
+
+
+.main .left .shortcuts{
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.main .left .shortcuts:hover{
+    background: #e3e3e3;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.main .left .shortcuts img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    margin: 8px 15px 8px 0;
+    margin-left: 10px;
+}
+
+.main .left .sho .edit{
+    color: #45abff;
+    font-size: 15px;
+    float: right;
+    position: relative;
+    bottom: 23px;
+    cursor: pointer;
+    padding: 5px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.main .left .sho .edit:hover{
+    background: #e3e3e3;
+    border-radius: 5px;
+}
+
+.main .left .sho:hover .edit{
+    opacity: 1;
+}
+
+.main .center{
+    width: 41.2%;
+    height: auto;
+    padding: 20px 20px 0 20px;
+    background: #f5f5f5;
+    margin-left: 25%;
+    transform: translateX(59px);
+}
+
+.main .center::-webkit-scrollbar{
+    width: 0;
+}
+
+.main .center .top_box{
+    width: 100%;
+    height: 260px;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr;
+    position: relative;
+}
+
+.next-button {
+    position: absolute;
+    top: 50%; /* Vertically center */
+    right: 10px; /* Position to the left of the container */
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    width: 50px; /* Circular size */
+    height: 50px;
+    border-radius: 50%; /* Circular button */
+    background-color: #ffffff; /* Button color */
+    font-size: 20px; /* Icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    z-index: 10;
+}
+
+.next-button i{
+    color: #666666;
+}
+
+.next-button:hover {
+    background-color: #dfdfdf; /* Darken on hover */
+    transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
+}
+
+.main .center .top_box .my_story_card{
+    width: 135px;
+    height: 250px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.main .center .top_box .my_story_card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.main .center .top_box .my_story_card .story_upload{
+    width: 100%;
+    height: 60px;
+    background: #ffffff;
+    position: relative;
+    bottom: 50px;
+    cursor: pointer;
+}
+
+.main .center .top_box .my_story_card .overlay {
+    position:absolute; /* Absolute positioning to cover the entire card */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+    z-index: 1; /* Ensures the overlay is above other elements */
+}
+
+.main .center .top_box .my_story_card:hover .overlay {
+    opacity: 1; /* Overlay becomes visible on hover */
+}
+
+.main .center .top_box .my_story_card .story_upload img {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    bottom: 15px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.main .center .top_box .my_story_card .story_upload .story_tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.main .center .top_box .story_card{
+    width: 135px;
+    height: 250px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.story_card .overlay {
+    position: absolute; /* Positioning the overlay */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Semi-transparent black overlay */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+    z-index: 1; /* Place it above the image */
+}
+
+.story_card:hover .overlay {
+    opacity: 1; /* Overlay becomes visible on hover */
+}
+
+.story_card .story_img{
+    transition: transform 0.3s ease-in-out
+}
+
+.my_story_card .story_img{
+    transition: transform 0.3s ease-in-out
+}
+.story_card:hover .story_img {
+    transform: scale(1.03);
+}
+
+.my_story_card:hover .story_img {
+    transform: scale(1.03);
+}
+
+.main .center .top_box .story_card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.main .center .top_box .story_card .story_profile{
+    position: relative;
+    bottom: 240px;
+    margin-left: 10px;
+}
+
+.main .center .top_box .story_card .story_profile img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 4px solid #45abff;
+}
+
+.main .center .top_box .story_card .story_profile .cricle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #27cc37;
+    border: 2px solid #fff;
+    position: relative;
+    bottom: 15px;
+    left: 25px;
+}
+
+.main .center .top_box .story_card .story_name{
+    position: relative;
+    bottom: 100px;
+    padding: 0 10px;
+}
+
+.main .center .top_box .story_card .story_name .name{
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+}
+
+
+.main .center .my_post{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    margin: 10px 0;
+}
+
+.main .center .my_post img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.main .center .my_post img:hover{
+    cursor: pointer;
+}
+
+.main .center .my_post .post_top{
+    display: flex;
+    align-items: center;
+}
+
+.main .center .my_post .post_top input{
+    width: 90%;
+    padding: 10px;
+    margin-left: 20px;
+    border: 0;
+    outline: none;
+    background: #efefef;
+    border-radius: 30px;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.main .center .my_post .post_top input:hover{
+    background: #e3e3e3;
+    cursor: pointer;
+}
+
+.main .center .my_post hr{
+    width: 100%;
+    height: 1px;
+    background: #cccccc;
+    border: 0;
+    margin: 10px 0;
+}
+
+.main .center .my_post .post_bottom{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 5px auto;
+    transform: translateX(4px);
+}
+
+.main .center .my_post .post_bottom .post_icon{
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 7px 40px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight:700;
+    color:#656565;
+    transition: 0.3s;
+}
+
+.main .center .my_post .post_bottom .post_icon:hover{
+    background: #efefef;
+    border-radius: 10px;
+}
+
+.main .center .my_post .post_bottom .post_icon i.red{
+    font-size: 23px;
+    color: red;
+    margin-right: 8px;
+    margin-left: -18px;
+}
+
+.main .center .my_post .post_bottom .post_icon i.green{
+    font-size: 23px;
+    color: #27cc37;
+    margin-right: 8px;
+}
+
+.main .center .my_post .post_bottom .post_icon i.yellow{
+    font-size: 23px;
+    color: #f7b928;
+    margin-right: 5px;
+}
+
+.main .center .room{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.main .center .room .room_image{
+    display: flex;
+    align-items: center;
+    border: 3px solid #45abff;
+    padding: 10px;
+    border-radius: 30px;
+    width: 150px;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+
+.main .center .room .room_image:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+
+.main .center .room .room_image img{
+    width: 25px;
+    margin-right: 8px;
+}
+
+.main .center .room .room_image .room_tag{
+    color: #006eff;
+}
+
+
+.main .center .room .room_profile img{
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    border: 3px solid #45abff;
+    transition: 0.3s;
+}
+
+.main .center .room .room_profile img:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+    filter: brightness(80%);
+}
+
+.main .center .friends_post{
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+}
+
+.main .center .friends_post .friend_post_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name{
+    display: flex;
+    align-items: center;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name .friends_name .friends_name{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name .friends_name .friends_name:hover{
+    text-decoration: underline;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name .friends_name .time{
+    font-size: 14px;
+    color: #919191;
+    margin: 3px 0;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name .friends_name .time i{
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.main .center .friends_post .friend_post_top .menu{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.main .center .friends_post .friend_post_top .menu:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+
+.main .center .friends_post .friend_post_top .menu i{
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 18px;
+}
+
+.main .center .friends_post img{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.main .center .friends_post .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+
+.main .center .friends_post .info .emoji_img{
+    display: flex;
+}
+
+.main .center .friends_post .info .emoji_img img{
+    width: 20px;
+    height: 20px;
+}
+
+.main .center .friends_post .info .emoji_img p{
+    margin-left: 6px;
+    font-size: 15px;
+    color: #919191;
+    transform: translateY(2px);
+}
+
+.main .center .friends_post .info .comment{
+    display: flex;
+    align-items: center;
+}
+
+.main .center .friends_post .info .comment p{
+    padding: 0 3px;
+    font-size: 15px;
+    color: #919191;
+}
+
+.main .center .friends_post hr{
+    width: 100%;
+    height: 1px;
+    background: #cccccc;
+    border: 0;
+    margin: 10px 0;
+}
+
+.main .center .friends_post .like{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.main .center .friends_post .like .like_icon{
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.main .center .friends_post .like .like_icon i{
+    font-size: 20px;
+    margin-right: 8px;
+    color: #919191;
+}
+
+.like_icon{
+    padding: 5px 30px;
+    transition: 0.3s;
+}
+
+.main .center .friends_post .like .like_iconi{
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.main .center .friends_post .like .like_iconi i{
+    font-size: 20px;
+    margin-right: 8px;
+    color: #919191;
+}
+
+.like_iconi{
+    padding: 5px 30px;
+    transition: 0.3s;
+}
+
+
+.like_iconi.active {
+    color: #006eff; /* Change to active color */
+}
+.like_iconi.active i {
+    color: #006eff !important; /* Change to active color */
+    animation: scaleUpDown 0.3s ease-in-out;
+}
+
+@keyframes scaleUpDown {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.3) rotate(15deg); /* Scale up and rotate slightly */
+    }
+    100% {
+        transform: scale(1) rotate(0deg); /* Back to normal */
+    }
+}
+
+.like_icon:hover{
+    background: #e3e3e3;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.like_iconi:hover{
+    background: #e3e3e3;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.main .center .friends_post .comment_warpper{
+    display: flex;
+    align-items: center;
+}
+
+.main .center .friends_post .comment_warpper img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 15px;
+}
+
+.main .center .friends_post .comment_warpper img:hover{
+    cursor: pointer;
+}
+
+.main .center .friends_post .comment_warpper .circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #27cc37;
+    border: 2px solid #fff;
+    position: relative;
+    top: 15px;
+    right: 25px;
+}
+
+.main .center .friends_post .comment_warpper .comment_search{
+    width: 95%;
+    padding: 5px 15px;
+    background: #efefef;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.main .center .friends_post .comment_warpper .comment_search:hover{
+    background: #e3e3e3;
+}
+
+.main .center .friends_post .comment_warpper .comment_search input{
+    width: 80%;
+    height: 30px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.main .center .friends_post .comment_warpper .comment_search i{
+    padding: 5px 5px;
+    color: #919191;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.main .center .friends_post .comment_warpper .comment_search i:hover{
+    cursor: pointer;
+    background: #d2d2d2;
+}
+
+.main .center .loard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 50px 0;
+}
+
+.main .center .loard button{
+    background: none;
+    padding: 5px 20px;
+    border: 1px solid #919191;
+    color: #919191;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main .center .loard button:hover{
+    background:#d6d6d6 ;
+}
+
+.main .center .end{
+    font-size: 15px;
+    text-align: center;
+    color: #919191;
+    margin: 10px 0;
+}
+
+.main .center .end span{
+    margin-left: 8px;
+    color: #45abff;
+}
+
+.main .center .end span i{
+    margin-right: 8px;
+}
+
+
+
+
+/*-----------------right------------------*/
+
+.main .right{
+    width: 25%;
+    height: 92vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    background: #f5f5f5;
+    padding: 20px 10px 5px 6px;
+    position: fixed;
+    right: 0;
+}
+
+.main .right::-webkit-scrollbar{
+    width: 7px;
+}
+
+.main .right::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: #f5f5f5;
+}
+
+.main .right:hover::-webkit-scrollbar-thumb{
+    background: #cccccc;
+}
+
+.main .right .first_warpper .page{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main .right .first_warpper .page h2{
+    font-size: 18px;
+    color: #919191;
+    margin: 5px 0;
+    margin-left: 10px;
+}
+
+.main .right .first_warpper .page .menu{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.main .right .first_warpper .page .menu:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+
+.main .right .first_warpper .page .menu i{
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 18px;
+}
+
+.main .right .first_warpper .page_img{
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.main .right .first_warpper .page_img:hover{
+    background: #e3e3e3;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main .right .first_warpper .page_img img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 8px 15px 8px 0;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.main .right .first_warpper .page_icon{
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.main .right .first_warpper .page_icon i{
+    color: #919191;
+    font-size: 20px;
+    margin: 8px 15px 8px 0;
+    margin-left: 10px;
+}
+
+.main .right .first_warpper .page_icon:hover{
+    background: #e3e3e3;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main .right hr{
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background: #cccccc;
+    margin: 10px auto;
+}
+
+.main .right .second_warpper h2{
+    font-size: 18px;
+    color: #919191;
+    margin: 5px 0;
+    margin-left: 10px;
+}
+
+.main .right .second_warpper .img_and_tag{
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.main .right .second_warpper .img_and_tag:hover{
+    background: #e3e3e3;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.main .right .second_warpper .img_and_tag img{
+    width: 40px;
+    margin: 8px 15px 8px 0;
+    margin-left: 10px;
+}
+
+.main .right .second_warpper .img_and_tag p{
+    line-height: 22px;
+}
+
+.main .right .second_warpper .img_and_tag p span{
+    font-weight: bold;
+}
+
+.main .right .third_warpper .contact_tag{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main .right .third_warpper .contact_tag h2{
+    font-size: 18px;
+    color: #919191;
+    margin: 5px 0;
+    margin-left: 10px;
+}
+
+.main .right .third_warpper .contact_tag .contact_icon i{
+    margin: 0 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    line-height: 35px;
+    padding-left: 10px;
+    transition: 0.3s;
+}
+
+.main .right .third_warpper .contact_tag .contact_icon i:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+
+.main .right .third_warpper .contact{
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.main .right .third_warpper .contact_1{
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.main .right .third_warpper .contact img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 8px 15px 8px 0;
+    border: 3px solid #45abff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.main .right .third_warpper .contact:hover{
+    background: #e3e3e3;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main .right .third_warpper .contact_1 img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 8px 15px 8px 0;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.main .right .third_warpper .contact_1:hover{
+    background: #e3e3e3;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main .right .third_warpper .circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #27cc37;
+    border: 2px solid #fff;
+    position: relative;
+    top: 15px;
+    right: 25px;
+}
+
+@media screen and (max-width: 1024px) {
+    .main {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    .main .center {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main .right {
+        width: 100%;
+        position: static;
+        height: auto;
+        overflow: visible;
+    }
+
+    .main .left {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .main .center .loard button {
+        width: 100%;
+        padding: 10px 20px;
+    }
+
+    .main .right .first_warpper .page .menu {
+        width: 30px;
+        height: 30px;
+    }
+
+    .main .right .first_warpper .page_img img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .main .right .second_warpper .img_and_tag img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .main .right .third_warpper .contact_tag .contact_icon i {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .main .right .third_warpper .contact img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .main {
+        padding: 10px;
+    }
+
+    .main .right {
+        display: none;
+    }
+
+    .main .center {
+        width: 88%;
+        margin: 0px;
+    }
+
+    .main .left {
+        width: 10%;
+        left: 1px;
+    }
+
+    .main .center .loard button {
+        width: 100%;
+        padding: 10px;
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+     /* Hide .main .right completely */
+    
+     html, body {
+        overflow-x: hidden; /* Hides horizontal scrolling */
+    }
+
+     nav {
+        height: 40px;
+        flex-direction: row; /* Change from column to row for horizontal layout */
+        justify-content: space-between;
+        padding: 10px;
+        display: flex;
+    }
+    
+    /* Align the left part to the left side of the nav */
+    nav .left {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align left */
+        margin-bottom: 0;
+    }
+    
+    /* Remove the search bar and show only the logo */
+    nav .left .search_bar{
+        opacity: 0;
+    }
+    
+    nav .left .logo {
+        font-size: 18px; /* Adjust font size of the logo */
+        color: #006eff;
+        cursor: pointer;
+    }
+    
+    nav .right {
+        display: flex;
+        justify-content: flex-end; /* Align right */
+        align-items: center;
+        margin-right: 10px;
+        z-index: 1000;
+    }
+    
+    /* Align icons in the right section */
+    nav .right i, nav .right img {
+        margin-left: 10px; /* Add space between icons */
+    }
+    
+    /* Adjust the size of the icons */
+    nav .right i {
+        font-size: 14px;
+        padding: 5px;
+    }
+    
+    nav .right img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    /* Remove .center section */
+        nav .center {
+            display: none;
+        }
+   
+        .main .right {
+        display: none;
+    }
+
+    /* Center the .main .center */
+    .main .center {
+        width: 100%;
+        transform: translateX(-1px);
+    }
+
+    .main .center .like{
+        transform: scale(0.9);
+        transform: translateX(-46px);
+    }
+
+    .main .center .friends_post .comment_warpper .comment_search input{
+        margin-right: -40px;
+    }
+
+    .main .center .my_post .post_bottom .post_icon i.red{
+        margin-left: -40px;
+    }
+
+    .main .center .my_post .post_bottom .post_icon i.green{
+        margin-left: -50px;
+    }
+
+    .main .center .my_post .post_bottom .post_icon i.yellow{
+        margin-left: -50px;
+    }
+
+    /* In .main .left, show only images/icons and align them to the left */
+    .main .left {
+        display: none;
+    }
+}
+
+
+/* Nav responsiveness */
+@media (max-width: 1024px) {
+    nav {
+        height: 50px;
+    }
+
+    nav .left .search_bar {
+        width: 180px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Ensure proper space for the icon and input */
+        padding: 0 10px;
+        background-color: #efefef;
+        border-radius: 30px;
+    }
+
+    nav .left .search_bar input {
+        width: 100%; /* Ensure input takes up full width inside the search bar */
+        height: 100%; /* Ensure the input stretches to fill the search bar height */
+        background: transparent;
+        outline: none;
+        border: 0;
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    nav .left .search_bar i {
+        font-size: 16px;
+        color: #919191;
+        margin-right: 5px;
+    }
+
+    nav .center i, nav .center span {
+        font-size: 22px;
+        padding: 10px;
+    }
+
+    nav .right {
+        display: flex; /* Use flexbox for alignment */
+        justify-content: center; /* Center icons horizontally */
+        align-items: center; /* Center icons vertically */
+        margin-right: 2px; /* Adjust right margin if needed */
+    }
+
+    nav .right i {
+        font-size: 14px;
+        padding: 6px; /* Ensure proper padding */
+        display: flex; /* Make sure the icon itself is flexible */
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .right img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%; /* Make the image circular */
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        height: 45px;
+    }
+
+    nav .left .search_bar {
+        width: 180px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Ensure proper space for the icon and input */
+        padding: 0 10px;
+        background-color: #efefef;
+        border-radius: 30px;
+    }
+
+    nav .left .search_bar input {
+        width: 100%; /* Ensure input takes up full width inside the search bar */
+        height: 100%; /* Ensure the input stretches to fill the search bar height */
+        background: transparent;
+        outline: none;
+        border: 0;
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    nav .left .search_bar i {
+        font-size: 16px;
+        color: #919191;
+        margin-right: 5px;
+    }
+
+    nav .right {
+        transform: translateX(-50px);
+        display: flex; /* Use flexbox for alignment */
+        justify-content: center; /* Center icons horizontally */
+        align-items: center; /* Center icons vertically */
+        margin-right: 2px; /* Adjust right margin if needed */
+    }
+
+    nav .right i {
+        font-size: 14px;
+        padding: 6px; /* Ensure proper padding */
+        display: flex; /* Make sure the icon itself is flexible */
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .right img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%; /* Make the image circular */
+        object-fit: cover;
+    }
+
+    /* Remove .center section */
+    nav .center {
+        display: none;
+    }
+}

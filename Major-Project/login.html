@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="login_css.css">
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="col-logo">
+                <img src="image/fb_logo.svg" alt="Logo">
+                <h2>Facebook helps you connect and share with the people in your life.</h2>
+            </div>
+            <div class="col-form">
+                <div class="form-container">
+                    <!-- Added IDs to input fields for easy access in JS -->
+                    <input id="email" type="text" placeholder="Email address or phone number">
+                    <input type="password" id="password" placeholder="Password">
+                    <!-- Show password icon using Font Awesome -->
+                        <span id="toggle-password" style="cursor: pointer;">
+                            <i class="fas fa-eye" id="eye-icon"></i> <!-- Default closed eye -->
+                        </span>
+                    <button class="btn-login" onclick="validateForm()">Login</button>
+                    <a href="#">Forgotten password?</a>
+                    <button class="btn-new">Create new Account</button>
+                </div>
+                <p><a href="#"><b>Create a Page</b></a> for a celebrity, brand or business.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-contents">
+            <ol>
+                <li>English (UK)</li>
+                <li><a href="#">മലയാളം</a></li>
+                <li><a href="#">தமிழ்</a></li>
+                <li><a href="#">తెలుగు</a></li>
+                <li><a href="#">বাংলা</a></li>
+                <li><a href="#">اردو</a></li>
+                <li><a href="#">हिन्दी</a></li>
+                <li><a href="#">ಕನ್ನಡ</a></li>
+                <li><a href="#">Español</a></li>
+                <li><a href="#">Português (Brasil)</a></li>
+                <li><a href="#">Français (France)</a></li>
+                <li><button>+</button></li>
+            </ol>
+
+            <ol>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Log In </a></li>
+                <li><a href="#">Messenger</a></li>
+                <li><a href="#">Facebook Lite</a></li>
+                <li><a href="#">Watch</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Page categories</a></li>
+                <li><a href="#">Places</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">PayGroups</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Oculus</a></li>
+                <li><a href="#">Portal</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Local</a></li>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Log In </a></li>
+                <li><a href="#">Messenger</a></li>
+                <li><a href="#">Facebook Lite</a></li>
+                <li><a href="#">Watch</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Page categories</a></li>
+                <li><a href="#">Places</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">PayGroups</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Oculus</a></li>
+                <li><a href="#">Portal</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Local</a></li>
+            </ol>
+            <small>Facebook © 2025</small>
+        </div>
+    </footer>
+
+    <!-- Error Pop-Up Modal -->
+    <div id="error-modal" class="error-modal">
+        <div class="error-modal-content">
+            <span id="error-message" class="error-message-text"></span>
+            <button id="close-error-modal" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <script>
+       document.getElementById('toggle-password').addEventListener('click', function() {
+    const passwordField = document.getElementById('password');
+    const eyeIcon = document.getElementById('eye-icon');
+
+    // Toggle the input type between password and text
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text'; // Show the password
+        eyeIcon.classList.remove('fa-eye'); // Remove the closed eye icon
+        eyeIcon.classList.add('fa-eye-slash'); // Add the open eye icon
+    } else {
+        passwordField.type = 'password'; // Hide the password
+        eyeIcon.classList.remove('fa-eye-slash'); // Remove the open eye icon
+        eyeIcon.classList.add('fa-eye'); // Add the closed eye icon
+    }
+});
+
+function validateForm() {
+    // Clear any previous error messages
+    document.getElementById('error-message').innerText = '';
+    document.getElementById('error-modal').style.display = 'none';
+
+    // Get the values of email and password fields
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    let isValid = true;
+    let errorMessage = '';
+
+    // Check if both fields are empty
+    if (email.trim() === '' && password.trim() === '') {
+        errorMessage = 'You need to enter the login details.';
+        isValid = false;
+    } else {
+        // Validate email format
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!email.match(emailPattern)) {
+            errorMessage = 'Please enter a valid email address or phone number.';
+            isValid = false;
+        }
+
+        // Validate password (basic check for not empty)
+        if (password.trim() === '') {
+            errorMessage = 'Password cannot be empty.';
+            isValid = false;
+        }
+    }
+
+    // If the login credentials don't match (example)
+    const validEmail = 'example@gmail.com'; // Replace with actual valid email
+    const validPassword = 'password123'; // Replace with actual valid password
+
+    if (isValid && (email !== validEmail || password !== validPassword)) {
+        errorMessage = 'Incorrect email or password. Please try again.';
+        isValid = false;
+    }
+
+    // Show the error pop-up if invalid
+    if (!isValid) {
+        document.getElementById('error-message').innerText = errorMessage;
+        document.getElementById('error-modal').style.display = 'flex'; // Show the modal
+    } else {
+        // Redirect to index.html on successful login
+        window.location.href = 'index.html';
+    }
+
+    return isValid; // Prevent form submission if invalid
+}
+
+// Close the error modal when the close button is clicked
+document.getElementById('close-error-modal').onclick = function () {
+    document.getElementById('error-modal').style.display = 'none';
+};
+
+
+    </script>
+</body>
+
+</html>

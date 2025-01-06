@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Box</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="profile-box">
+        <div class="profile-header">
+            <div class="profile-row">
+                <div class="profile-icon">
+                    <img src="image/profile.jpg" alt="Profile Image">
+                </div>                
+                <p class="profile-name">Rayan Hussain</p>
+            </div>
+            <div class="profile-line"></div>
+            <button class="see-profiles-btn">👥 See all profiles</button>
+        </div>
+        <ul class="profile-menu">
+            <li>
+                <div class="menu-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="menu-text">Settings & privacy</span>
+                </div>
+            </li>
+            <li>
+                <div class="menu-item">
+                    <i class="fa-solid fa-question-circle"></i>
+                    <span class="menu-text">Help & support</span>
+                </div>
+            </li>
+            <li>
+                <div class="menu-item">
+                    <i class="fa-solid fa-moon"></i>
+                    <span class="menu-text">Display & accessibility</span>
+                </div>
+            </li>
+            <li>
+                <div class="menu-item">
+                    <i class="fa-solid fa-comment"></i>
+                    <span class="menu-text">Give feedback</span>
+                    <span class="shortcut">CTRL B</span>
+                </div>
+            </li>
+            <li onclick="logout()">
+                <div class="menu-item">
+                    <i class="fa-solid fa-sign-out-alt"></i>
+                    <span class="menu-text">Log Out</span>
+                </div>
+            </li>
+        </ul>
+        
+        
+        <footer class="profile-footer">
+            Privacy · Terms · Advertising · Ad Choices · Cookies · More · Meta © 2025
+        </footer>
+    </div>
+</body>
+</html>
