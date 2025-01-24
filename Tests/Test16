@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React Counter</title>
+</head>
+<body>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <div id="root"></div>
+  <script type="text/babel">
+    // Extracting useState hook from React library
+    const { useState } = React;
+
+    function Counter() {
+      const [count, setCount] = useState(2); // Correct syntax for useState
+
+      return (
+        <div>
+          <p>You clicked {count} times</p>
+          <button onClick={() => setCount(count + 1)}>Click me</button>
+        </div>
+      );
+    }
+
+    // Using ReactDOM to render the component
+    ReactDOM.render(<Counter />, document.getElementById("root"));
+  </script>
+</body>
+</html>
